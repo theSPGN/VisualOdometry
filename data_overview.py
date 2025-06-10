@@ -21,6 +21,12 @@ with h5py.File(FILE_PATH, "r") as file:
     data = np.array(list(file["ouster"]["data"]))
     ovc_rgb = np.array(list(file["ovc"]["rgb"]["data"]))
     ts = np.array(list(file["ovc"]["ts"]))
+    left_dvs = [np.array(list(file["prophesee"]["left"]['calib'])),
+                np.array(list(file["prophesee"]["left"]['p'])),
+                np.array(list(file["prophesee"]["left"]['t'])),
+                np.array(list(file["prophesee"]["left"]['x'])),
+                np.array(list(file["prophesee"]["left"]['y']))]
+    right_dvs = np.array(list(file["prophesee"]["right"]))
 
 # %%
 with h5py.File(FILE_PATH, "r") as file:
